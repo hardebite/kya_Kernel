@@ -17,8 +17,7 @@ from forms import  *
 from sqlalchemy.ext.declarative import declarative_base
 
 app = Flask(__name__)
-# app.config['SECRET_KEY'] = os.environ.get("SECRET_KEY")
-app.config['SECRET_KEY'] = 'qwerty'
+app.config['SECRET_KEY'] = os.environ.get("SECRET_KEY")
 ckeditor = CKEditor(app)
 Bootstrap(app)
 login_manager = LoginManager()
@@ -189,8 +188,6 @@ def admin_only(f):
         if current_user.id == 1 or current_user.id == 2 :
             return f(*args, **kwargs)
         #Otherwise continue with the route function
-
-
         return abort(403)
     return decorated_function
 
