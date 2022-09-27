@@ -17,8 +17,7 @@ from forms import  *
 from sqlalchemy.ext.declarative import declarative_base
 
 app = Flask(__name__)
-# app.config['SECRET_KEY'] = os.environ.get("SECRET_KEY")
-app.config['SECRET_KEY'] = 'assdfghjklmbvxcz'
+app.config['SECRET_KEY'] = os.environ.get("SECRET_KEY")
 ckeditor = CKEditor(app)
 Bootstrap(app)
 login_manager = LoginManager()
